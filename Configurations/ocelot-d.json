@@ -1,0 +1,80 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/inventory/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "5.161.50.89",
+          "Port": "7322" 
+        }
+      ],
+      "UpstreamPathTemplate": "/inventory/{everything}",
+      "Priority": 0,
+      "UpstreamHttpMethod": [
+        "GET"
+      ],
+      "RouteIsCaseSensitive": false
+    },
+    {
+      "DownstreamPathTemplate": "/order/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "5.161.50.89",
+          "Port": "7323"
+        }
+      ],
+      "UpstreamPathTemplate": "/order/{everything}",
+      "Priority": 0,
+      "UpstreamHttpMethod": [
+        "GET", "POST", "PUT", "DELETE"
+      ],
+      "RouteIsCaseSensitive": false,
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/cart/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "5.161.50.89",
+          "Port": "7325"
+        }
+      ],
+      "UpstreamPathTemplate": "/cart/{everything}",
+      "Priority": 0,
+      "UpstreamHttpMethod": [
+        "GET", "POST", "PUT", "DELETE"
+      ],
+      "RouteIsCaseSensitive": false,
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/Checkout/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "5.161.50.89",
+          "Port": "7329"
+        }
+      ],
+      "UpstreamPathTemplate": "/Checkout/{everything}",
+      "Priority": 0,
+      "UpstreamHttpMethod": [
+        "GET", "POST", "PUT", "DELETE"
+      ],
+      "RouteIsCaseSensitive": true,
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
+    }
+  ]
+}
