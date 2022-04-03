@@ -75,6 +75,26 @@
         "AuthenticationProviderKey": "TestKey",
         "AllowedScopes": []
       }
+    },
+    {
+      "DownstreamPathTemplate": "/UpdateOrder/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "update-order",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/UpdateOrder/{everything}",
+      "Priority": 0,
+      "UpstreamHttpMethod": [
+        "GET", "POST", "PUT", "DELETE"
+      ],
+      "RouteIsCaseSensitive": true,
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
     }
   ]
 }
