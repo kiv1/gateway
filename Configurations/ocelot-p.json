@@ -5,8 +5,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "5.161.50.89",
-          "Port": "7322" 
+          "Host": "172.17.0.6",
+          "Port": "3050"
         }
       ],
       "UpstreamPathTemplate": "/inventory/{everything}",
@@ -21,8 +21,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "5.161.50.89",
-          "Port": "7323"
+          "Host": "172.17.0.7",
+          "Port": "3000"
         }
       ],
       "UpstreamPathTemplate": "/order/{everything}",
@@ -41,8 +41,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "5.161.50.89",
-          "Port": "7325"
+          "Host": "172.17.0.9",
+          "Port": "80"
         }
       ],
       "UpstreamPathTemplate": "/cart/{everything}",
@@ -61,11 +61,31 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "5.161.50.89",
-          "Port": "7329"
+          "Host": "172.17.0.13",
+          "Port": "80"
         }
       ],
       "UpstreamPathTemplate": "/Checkout/{everything}",
+      "Priority": 0,
+      "UpstreamHttpMethod": [
+        "GET", "POST", "PUT", "DELETE"
+      ],
+      "RouteIsCaseSensitive": true,
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/UpdateOrder/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.17.0.14",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/UpdateOrder/{everything}",
       "Priority": 0,
       "UpstreamHttpMethod": [
         "GET", "POST", "PUT", "DELETE"

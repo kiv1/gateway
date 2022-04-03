@@ -1,3 +1,4 @@
+using api_gateway;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Ocelot.DependencyInjection;
 using Ocelot.Authentication;
@@ -7,6 +8,7 @@ IConfiguration configuration = new ConfigurationBuilder()
     .AddJsonFile("./Configurations/ocelot.json")
     .Build();
 var builder = WebApplication.CreateBuilder(args);
+//builder.Services.ConfigureDownstreamHostAndPortsPlaceholders(configuration);
 
 // Add services to the container.
 builder.Services.AddOcelot(configuration);
@@ -24,20 +26,17 @@ builder.Services.AddAuthentication(options =>
     })
 .AddJwtBearer(authenticationProviderKey, x =>
 {
-    x.Authority = "https://dev-s4jkne9p.us.auth0.com/";
-    x.Audience = "gateway";
+    x.Authority = Environment.GetEnvironmentVariable("AUTHORITY_URL") ?? "https://dev-s4jkne9p.us.auth0.com/";
+    x.Audience = Environment.GetEnvironmentVariable("AUDIENCE_NAME") ?? "gateway";
 });
 builder.Services.AddCors();
 var app = builder.Build();
-
 app.UseOcelot();
 app.UseCors(b => b
     .AllowAnyOrigin()
     .AllowAnyMethod()
     .AllowAnyHeader()
 );
-app.UseHttpsRedirection();
-
 app.UseAuthorization();
 app.UseAuthentication();
 app.MapControllers();
